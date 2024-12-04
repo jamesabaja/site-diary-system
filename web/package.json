@@ -1,0 +1,30 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "private": true,
+  "browserslist": {
+    "development": [
+      "last 1 version"
+    ],
+    "production": [
+      "defaults"
+    ]
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/mulish": "^5.1.0",
+    "@redwoodjs/forms": "8.4.1",
+    "@redwoodjs/router": "8.4.1",
+    "@redwoodjs/web": "8.4.1",
+    "@tabler/icons-react": "^3.24.0",
+    "humanize-string": "2.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "styled-components": "^6.1.13"
+  },
+  "devDependencies": {
+    "@redwoodjs/vite": "8.4.1",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19"
+  }
+}
