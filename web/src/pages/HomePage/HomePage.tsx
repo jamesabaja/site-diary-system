@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import { PageTitle } from 'src/components/PageTitle'
@@ -26,16 +25,6 @@ const List = styled.ul`
       left: -1rem;
       color: ${({ theme }) => theme.colour.primary._500};
     }
-  }
-`
-
-const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.colour.primary._700};
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: ${({ theme }) => theme.colour.primary._900};
-    text-decoration: underline;
   }
 `
 

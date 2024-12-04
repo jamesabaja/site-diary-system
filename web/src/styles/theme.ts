@@ -1,4 +1,4 @@
-import { css, Interpolation, RuleSet } from 'styled-components'
+import { css, RuleSet } from 'styled-components'
 
 type Colours = {
   base: string
@@ -114,22 +114,22 @@ export type BuildPassTheme = {
   }
 
   font: {
-    display01: Interpolation<BuildPassTheme>
-    display02: Interpolation<BuildPassTheme>
-    heading01: Interpolation<BuildPassTheme>
-    heading02: Interpolation<BuildPassTheme>
-    heading03: Interpolation<BuildPassTheme>
-    heading04: Interpolation<BuildPassTheme>
-    label01: Interpolation<BuildPassTheme>
-    label02: Interpolation<BuildPassTheme>
-    subheading01: Interpolation<BuildPassTheme>
-    subheading02: Interpolation<BuildPassTheme>
-    body01: Interpolation<BuildPassTheme>
-    body02: Interpolation<BuildPassTheme>
-    body03: Interpolation<BuildPassTheme>
-    caption01: Interpolation<BuildPassTheme>
-    caption02: Interpolation<BuildPassTheme>
-    footer: Interpolation<BuildPassTheme>
+    display01: RuleSet<object>
+    display02: RuleSet<object>
+    heading01: RuleSet<object>
+    heading02: RuleSet<object>
+    heading03: RuleSet<object>
+    heading04: RuleSet<object>
+    label01: RuleSet<object>
+    label02: RuleSet<object>
+    subheading01: RuleSet<object>
+    subheading02: RuleSet<object>
+    body01: RuleSet<object>
+    body02: RuleSet<object>
+    body03: RuleSet<object>
+    caption01: RuleSet<object>
+    caption02: RuleSet<object>
+    footer: RuleSet<object>
   }
 }
 

@@ -1,5 +1,5 @@
 import { IconCalendar, IconHome } from '@tabler/icons-react'
-import { css, styled } from 'styled-components'
+import { styled } from 'styled-components'
 
 import { Link } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
@@ -31,10 +31,6 @@ const SidebarWrapper = styled.aside`
   bottom: 0;
 `
 
-const sectionPadding = css`
-  padding: 1rem;
-`
-
 const MainSection = styled.section`
   position: relative; // for menu overlay
   flex-grow: 1;
@@ -46,31 +42,6 @@ const MainSection = styled.section`
 
 const Logo = styled.div`
   padding: 1rem;
-`
-
-const MenuSection = styled.section`
-  ${sectionPadding}
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-
-  > * {
-    margin-bottom: 1rem;
-  }
-
-  > *:first-child {
-    margin-bottom: 0.5rem;
-  }
-
-  ${({ theme: { media } }) => media.md`
-    > * {
-      margin-bottom: 1.5rem;
-    }
-
-    > *:first-child {
-      margin-bottom: 1rem;
-    }
-  `}
 `
 
 const SectionTitle = styled.div`
@@ -91,7 +62,7 @@ const SectionTitle = styled.div`
   padding: 0 1rem;
 `
 
-const NavItemSpan = styled.span<NavItemProps>`
+const NavItemSpan = styled.span`
   padding: 0.5rem 0.8rem;
   ${({ theme }) => theme.font.subheading02};
   font-weight: 400;
@@ -104,9 +75,7 @@ const NavItemSpan = styled.span<NavItemProps>`
 
   & svg {
     font-size: 1rem;
-    color: ${({ iconColour, theme }) =>
-      iconColour || theme.colour.secondary._900};
-    transform: rotate(${({ iconRotate }) => iconRotate ?? 0}deg);
+    color: ${({ theme }) => theme.colour.secondary._900};
   }
 
   &:hover,
@@ -143,7 +112,7 @@ const Sidebar = () => {
         <Link to="/site-diaries">
           <NavItemSpan>
             <IconCalendar />
-            <Text>Site Diaries</Text>
+            <Text>Site diaries</Text>
           </NavItemSpan>
         </Link>
       </MainSection>
