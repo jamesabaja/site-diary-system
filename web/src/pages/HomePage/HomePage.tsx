@@ -1,7 +1,11 @@
+import { useEffect } from 'react'
+
 import styled from 'styled-components'
 
+import { navigate, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
+import { useAuth } from 'src/auth'
 import { PageTitle } from 'src/components/PageTitle'
 
 const Container = styled.div``
@@ -56,6 +60,13 @@ const ExternalLink = styled.a`
 `
 
 const HomePage = () => {
+  const { isAuthenticated, logIn } = useAuth()
+
+  useEffect(() => {
+    if (!isAuthenticated) logIn()
+    else navigate(routes.siteDiaries())
+  }, [isAuthenticated, logIn])
+
   return (
     <>
       <Metadata title="Home" description="BuildPass Developer Assessment" />

@@ -5,7 +5,7 @@
 // https://www.prisma.io/docs/orm/prisma-migrate
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -21,4 +21,14 @@ model SiteDiary {
 
   date  DateTime
   notes String?
+  description String?
+  weather String?
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  clerkId String?
+  role String?
+  name String?
+  email String @unique
 }

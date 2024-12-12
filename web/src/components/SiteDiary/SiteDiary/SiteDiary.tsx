@@ -9,6 +9,7 @@ import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
+import { useAuth } from 'src/auth'
 import { timeTag } from 'src/lib/formatters'
 
 const DELETE_SITE_DIARY_MUTATION: TypedDocumentNode<
@@ -27,6 +28,8 @@ interface Props {
 }
 
 const SiteDiary = ({ siteDiary }: Props) => {
+  const { currentUser } = useAuth()
+
   const [deleteSiteDiary] = useMutation(DELETE_SITE_DIARY_MUTATION, {
     onCompleted: () => {
       toast.success('SiteDiary deleted')
@@ -73,24 +76,34 @@ const SiteDiary = ({ siteDiary }: Props) => {
               <th>Notes</th>
               <td>{siteDiary.notes}</td>
             </tr>
+            <tr>
+              <th>Description</th>
+              <td>{siteDiary.description}</td>
+            </tr>
+            <tr>
+              <th>Weather</th>
+              <td>{siteDiary.weather}</td>
+            </tr>
           </tbody>
         </table>
       </div>
-      <nav className="rw-button-group">
-        <Link
-          to={routes.editSiteDiary({ id: siteDiary.id })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
-        <button
-          type="button"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(siteDiary.id)}
-        >
-          Delete
-        </button>
-      </nav>
+      {currentUser?.roles?.includes?.('site_manager') && (
+        <nav className="rw-button-group">
+          <Link
+            to={routes.editSiteDiary({ id: siteDiary.id })}
+            className="rw-button rw-button-blue"
+          >
+            Edit
+          </Link>
+          <button
+            type="button"
+            className="rw-button rw-button-red"
+            onClick={() => onDeleteClick(siteDiary.id)}
+          >
+            Delete
+          </button>
+        </nav>
+      )}
     </>
   )
 }

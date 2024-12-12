@@ -11,8 +11,10 @@
     ]
   },
   "dependencies": {
+    "@clerk/clerk-react": "^4",
     "@fontsource/inter": "^5.1.0",
     "@fontsource/mulish": "^5.1.0",
+    "@redwoodjs/auth-clerk-web": "8.4.1",
     "@redwoodjs/forms": "8.4.1",
     "@redwoodjs/router": "8.4.1",
     "@redwoodjs/web": "8.4.1",

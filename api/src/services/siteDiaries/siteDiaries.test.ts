@@ -31,13 +31,13 @@ describe('siteDiaries', () => {
   scenario('creates a siteDiary', async () => {
     const result = await createSiteDiary({
       input: {
-        updatedAt: '2024-12-04T05:02:32.582Z',
-        date: '2024-12-04T05:02:32.582Z',
+        updatedAt: '2024-12-11T14:37:39.701Z',
+        date: '2024-12-11T14:37:39.701Z',
       },
     })
 
-    expect(result.updatedAt).toEqual(new Date('2024-12-04T05:02:32.582Z'))
-    expect(result.date).toEqual(new Date('2024-12-04T05:02:32.582Z'))
+    expect(result.updatedAt).toEqual(new Date('2024-12-11T14:37:39.701Z'))
+    expect(result.date).toEqual(new Date('2024-12-11T14:37:39.701Z'))
   })
 
   scenario('updates a siteDiary', async (scenario: StandardScenario) => {
@@ -46,10 +46,10 @@ describe('siteDiaries', () => {
     })) as SiteDiary
     const result = await updateSiteDiary({
       id: original.id,
-      input: { updatedAt: '2024-12-05T05:02:32.582Z' },
+      input: { updatedAt: '2024-12-12T14:37:39.701Z' },
     })
 
-    expect(result.updatedAt).toEqual(new Date('2024-12-05T05:02:32.582Z'))
+    expect(result.updatedAt).toEqual(new Date('2024-12-12T14:37:39.701Z'))
   })
 
   scenario('deletes a siteDiary', async (scenario: StandardScenario) => {

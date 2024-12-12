@@ -7,6 +7,7 @@ import FatalErrorPage from 'src/pages/FatalErrorPage'
 
 import './index.css'
 import './scaffold.css'
+import { AuthProvider, useAuth } from './auth'
 import { BuildPassThemeProvider } from './context/themeContext'
 import { Globals } from './styles/globals'
 
@@ -28,12 +29,14 @@ interface AppProps {
 const App = ({ children }: AppProps) => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <RedwoodApolloProvider>
-        <BuildPassThemeProvider>
-          <Globals />
-          {children}
-        </BuildPassThemeProvider>
-      </RedwoodApolloProvider>
+      <AuthProvider>
+        <RedwoodApolloProvider useAuth={useAuth}>
+          <BuildPassThemeProvider>
+            <Globals />
+            {children}
+          </BuildPassThemeProvider>
+        </RedwoodApolloProvider>
+      </AuthProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )

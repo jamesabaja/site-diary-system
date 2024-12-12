@@ -5,6 +5,8 @@ export const schema = gql`
     updatedAt: DateTime!
     date: DateTime!
     notes: String
+    description: String
+    weather: String
   }
 
   type Query {
@@ -15,11 +17,15 @@ export const schema = gql`
   input CreateSiteDiaryInput {
     date: DateTime!
     notes: String
+    description: String
+    weather: String
   }
 
   input UpdateSiteDiaryInput {
     date: DateTime
     notes: String
+    description: String
+    weather: String
   }
 
   type Mutation {

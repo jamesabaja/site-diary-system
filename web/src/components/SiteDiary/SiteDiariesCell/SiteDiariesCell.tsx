@@ -20,6 +20,8 @@ export const QUERY: TypedDocumentNode<
       updatedAt
       date
       notes
+      description
+      weather
     }
   }
 `

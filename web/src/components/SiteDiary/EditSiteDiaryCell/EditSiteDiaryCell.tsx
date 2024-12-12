@@ -23,6 +23,8 @@ export const QUERY: TypedDocumentNode<EditSiteDiaryById> = gql`
       updatedAt
       date
       notes
+      description
+      weather
     }
   }
 `
@@ -38,6 +40,8 @@ const UPDATE_SITE_DIARY_MUTATION: TypedDocumentNode<
       updatedAt
       date
       notes
+      description
+      weather
     }
   }
 `
@@ -73,7 +77,7 @@ export const Success = ({ siteDiary }: CellSuccessProps<EditSiteDiaryById>) => {
     <div className="rw-segment">
       <header className="rw-segment-header">
         <h2 className="rw-heading rw-heading-secondary">
-          Edit SiteDiary {siteDiary?.id}
+          Edit Site Diary {siteDiary?.id}
         </h2>
       </header>
       <div className="rw-segment-main">

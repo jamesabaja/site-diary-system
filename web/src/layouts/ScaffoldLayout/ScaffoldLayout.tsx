@@ -1,8 +1,10 @@
-import { IconCalendar, IconHome } from '@tabler/icons-react'
+import { IconCalendar, IconHome, IconUsersGroup } from '@tabler/icons-react'
 import { styled } from 'styled-components'
 
 import { Link } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
+
+import { useAuth } from 'src/auth'
 
 import logo from '../../..//public/logo.svg'
 
@@ -10,6 +12,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colour.neutral.surface};
   display: flex;
   height: 100%;
+  min-height: 100vh;
 `
 
 const MainContainer = styled.div`
@@ -29,6 +32,8 @@ const SidebarWrapper = styled.aside`
   z-index: 1039;
   width: 256px;
   bottom: 0;
+  min-height: 100vh;
+  height: 100vh;
 `
 
 const MainSection = styled.section`
@@ -95,6 +100,8 @@ const Text = styled.span`
 `
 
 const Sidebar = () => {
+  const { currentUser } = useAuth()
+
   return (
     <SidebarWrapper>
       <MainSection>
@@ -115,6 +122,17 @@ const Sidebar = () => {
             <Text>Site diaries</Text>
           </NavItemSpan>
         </Link>
+        {(currentUser?.roles ?? [])?.includes?.('site_manager') && (
+          <>
+            <SectionTitle>User Management</SectionTitle>
+            <Link to="/users">
+              <NavItemSpan>
+                <IconUsersGroup />
+                <Text>Users</Text>
+              </NavItemSpan>
+            </Link>
+          </>
+        )}
       </MainSection>
     </SidebarWrapper>
   )
